@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Cost Calculator</title>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Smart Income Calculator</h1>
+        
+        <div class="input-section">
+            <div class="input-grid">
+                <div class="input-group">
+                    <input type="number" id="hourlyWage" placeholder=" " step="0.01">
+                    <label>Hourly Wage ($)</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="hoursWorked" placeholder=" " step="0.5">
+                    <label>Hours/Week</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="weeksWorked" placeholder=" ">
+                    <label>Weeks Worked</label>
+                </div>
+                <div class="input-group dropdown-container">
+                    <input type="text" id="cityInput" placeholder=" " autocomplete="off" oninput="filterCities()" onclick="showDropdown()">
+                    <label for="cityInput">City</label>
+                    <div id="cityDropdown" class="dropdown-list"></div>
+                </div>
+            </div>
+            <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <div class="results-section" id="results">
+            <div class="result-card">
+                <h3>Income Breakdown</h3>
+                <div class="breakdown">
+                    <p>Gross Income: $<span id="grossIncome">0</span></p>
+                    <p>Estimated Taxes: $<span id="taxes">0</span></p>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h3>Cost of Living</h3>
+                <div class="cost-adjustment">
+                    <div class="cost-item">
+                        <span>🏠 Housing</span>
+                        <input type="number" class="cost-input" id="housing" value="0">
+                    </div>
+                    <div class="cost-item">
+                        <span>🍎 Groceries</span>
+                        <input type="number" class="cost-input" id="groceries" value="0">
+                    </div>
+                    <div class="cost-item">
+                        <span>🚗 Transportation</span>
+                        <input type="number" class="cost-input" id="transportation" value="0">
+                    </div>
+                    <div class="cost-item">
+                        <span>💡 Utilities</span>
+                        <input type="number" class="cost-input" id="utilities" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-display" id="netIncome">
+                Monthly Take-home: $0
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cityData.js"></script>
+</body>
+</html>
